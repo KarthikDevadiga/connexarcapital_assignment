@@ -1,0 +1,29 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ],
+  "compilerOptions": {
+    "module": "NodeNext",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@/components": ["components"],
+      "@/assets": ["assets"],
+      "@/helper": ["helper"],
+      "@/views": ["views"],
+      "@/features": ["features"],
+      "@/store": ["store"],
+      "@/router": ["router"],
+      "@/shared": ["shared"],
+    }
+  }
+}
