@@ -12,6 +12,18 @@
     }
   ],
   "compilerOptions": {
-    "module": "NodeNext"
+    "module": "NodeNext",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@/components": ["components"],
+      "@/assets": ["assets"],
+      "@/helper": ["helper"],
+      "@/views": ["views"],
+      "@/features": ["features"],
+      "@/store": ["store"],
+      "@/router": ["router"],
+      "@/shared": ["shared"],
+    }
   }
 }

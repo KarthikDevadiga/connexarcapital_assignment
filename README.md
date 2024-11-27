@@ -59,3 +59,11 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
+
+
+
+
+# Improvments
+* Show error page or toaster if config json is unable to fetch in main.ts
+
+* Wrong route should navigate to home page

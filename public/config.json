@@ -1,0 +1,10 @@
+{
+  "newsAPI": {
+    "url": "https://api.marketaux.com/v1/news/all",
+    "apiKey": "OLLt7Q3gEfkU1YKlGrmbUT6OD4WnYQCyRA65pqMq"
+  },
+  "calenderAPI": {
+    "url": "https://api.marketaux.com/v1/news/all",
+    "apiKey": "OLLt7Q3gEfkU1YKlGrmbUT6OD4WnYQCyRA65pqMq"
+  }
+}
