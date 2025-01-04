@@ -7,7 +7,11 @@
         :to="{ name: route.name }"
         class="max-w-md rounded overflow-hidden shadow-lg bg-white block"
       >
-        <img class="w-full h-48 object-cover" :src="route.image" alt="Image placeholder">
+        <img
+          class="w-full h-48 object-cover"
+          :src="route.image"
+          alt="Image placeholder"
+        />
         <div class="p-6">
           <h2 class="text-2xl font-bold text-blue-500">
             {{ route.text }}
@@ -18,7 +22,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<!-- <script lang="ts">
 import { RouteNames } from '@/shared/enum/app.enum';
 
 
@@ -35,6 +39,38 @@ export default {
     };
   }
 };
+</script> -->
+
+<script lang="ts" setup>
+import { RouteNames } from "@/shared/enum/app.enum";
+
+const routes = [
+  {
+    name: RouteNames.ECONOMIC_CALENDAR,
+    text: "Economic Calendar",
+    image: "https://shorturl.at/fTosD",
+  },
+  {
+    name: RouteNames.COMPANY_ALERTS,
+    text: "Company Alerts",
+    image: "https://shorturl.at/fTosD",
+  },
+  {
+    name: RouteNames.INVESTOR_INFO,
+    text: "Investor Info",
+    image: "https://shorturl.at/fTosD",
+  },
+  {
+    name: RouteNames.NEWS,
+    text: "News",
+    image: "https://via.placeholder.com/400x200",
+  },
+  {
+    name: RouteNames.INVESTOR_SUMMARY,
+    text: "Investor Summary",
+    image: "https://via.placeholder.com/400x200",
+  },
+];
 </script>
 
 <style scoped></style>

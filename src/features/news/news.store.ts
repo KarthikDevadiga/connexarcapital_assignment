@@ -1,41 +1,36 @@
 import { defineStore } from "pinia";
+import { ref } from "vue";
+import type { NewsArticle } from "./news.model";
+import { fetchNews } from "./news.services";
 
-interface NewsArticle {
-  id: number;
-  title: string;
-  content: string;
-  publishedAt: Date;
-}
+export const useNewsStore = defineStore("news", () => {
+  /*state*/
+  const articles = ref<NewsArticle[]>([]);
+  const isLoading = ref(false);
+  const isError = ref(false);
 
-interface NewsState {
-  articles: NewsArticle[];
-}
+  /*actions*/
+  const loadNews = async () => {
+    try {
+      isLoading.value = true;
+      const response = await fetchNews();
+      isLoading.value = false;
+      articles.value = response;
+    } catch {
+      isError.value = true;
+      isLoading.value = false;
+    }
+  };
 
-export const useNewsStore = defineStore("news", {
-  state: (): NewsState => ({
-    articles: [],
-  }),
-  actions: {
-    addArticle(article: NewsArticle) {
-      this.articles.push(article);
-    },
-    removeArticle(articleId: number) {
-      this.articles = this.articles.filter(
-        (article) => article.id !== articleId
-      );
-    },
-    updateArticle(updatedArticle: NewsArticle) {
-      const index = this.articles.findIndex(
-        (article) => article.id === updatedArticle.id
-      );
-      if (index !== -1) {
-        this.articles[index] = updatedArticle;
-      }
-    },
-  },
-  getters: {
-    getArticleById: (state) => (id: number) => {
-      return state.articles.find((article) => article.id === id);
-    },
-  },
+  /*getters*/
+
+  return {
+    // state
+    articles,
+
+    // actions
+    loadNews,
+
+    // getters
+  };
 });

@@ -5,21 +5,24 @@ import type { APIConfig } from "@/shared/types/app.model";
 export const useAppConfigStore = defineStore("app", () => {
   const isAppReady = ref(false);
   const isLoading = ref(false);
-  const apiConfigs = ref<APIConfig>({} as APIConfig);
+  const apiConfig = ref<APIConfig[]>([] as APIConfig[]);
 
-  function setConfig(config: APIConfig) {
-    apiConfigs.value = config;
+  function setConfig(config: APIConfig[]) {
+    apiConfig.value = config;
   }
+  const getAPIInfo = (name: string): APIConfig | undefined => {
+    return apiConfig.value.find((config) => config.name === name);
+  };
 
   return {
     /*State*/
     isLoading,
-    apiConfigs,
     isAppReady,
 
-
-
-    /* Actions */ 
+    /* Actions */
     setConfig,
+
+    /* Getters */
+    getAPIInfo,
   };
 });
