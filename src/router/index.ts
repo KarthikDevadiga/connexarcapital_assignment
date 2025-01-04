@@ -36,6 +36,11 @@ const router = createRouter({
       name: RouteNames.INVESTOR_SUMMARY,
       component: () => import("@/views/InvestorSummaryView.vue"),
     },
+    {
+      path: "/news/article/:id",
+      name: "article",
+      component: () => import("@/features/news/components/NewsArticle.vue"),
+    },
   ],
 });
 

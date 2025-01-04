@@ -26,7 +26,7 @@
     <loading-circle v-show="newsStore.isLoading"></loading-circle>
 
     <div
-      v-show="!newsStore.isLoading && !showArticle"
+      v-show="!newsStore.isLoading"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
     >
       <!--To do:  Reusable component for news article -->
@@ -46,18 +46,23 @@
           </h2>
           <p class="text-gray-500 text-sm">{{ article.publishedAt }}</p>
           <p class="text-gray-700 text-base mt-4">{{ article.content }}</p>
-          <button
+          <!-- <button
             type="button"
-            @click="showArticle = !showArticle"
+            @click="readMore(index)"
             class="text-indigo-500 hover:underline mt-4 block"
           >
             Read More
-          </button>
+          </button> -->
+          <router-link
+            :to="`/news/article/${article.id}`"
+            class="text-indigo-500 hover:underline mt-4 block"
+          >
+            Read More
+          </router-link>
         </div>
       </div>
     </div>
   </div>
-  <RouterView></RouterView>
 </template>
 
 <script setup lang="ts">
@@ -75,8 +80,6 @@ const filterOptions = reactive([
 
 const selectedTopic = ref(filterOptions[0].value);
 
-const showArticle = ref(false);
-
 //To do: Frontend filtering, but in real world, filter should be refteched with new payload
 const filteredArticles = computed(() => {
   if (selectedTopic.value === "all") {
@@ -88,7 +91,9 @@ const filteredArticles = computed(() => {
 });
 
 onMounted(() => {
-  newsStore.loadNews();
+  if (newsStore.articles.length === 0) {
+    newsStore.loadNews();
+  }
 });
 </script>
 
