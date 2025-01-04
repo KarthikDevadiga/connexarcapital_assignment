@@ -32,5 +32,8 @@ export const useNewsStore = defineStore("news", () => {
     loadNews,
 
     // getters
+
+    // state
+    isLoading,
   };
 });

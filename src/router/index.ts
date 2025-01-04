@@ -1,5 +1,6 @@
 import { RouteNames } from "@/shared/enum/app.enum";
 import HomeView from "@/views/HomeView.vue";
+
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({

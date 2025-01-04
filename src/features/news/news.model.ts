@@ -5,9 +5,8 @@ export interface NewsArticle {
   publishedAt: Date;
   image: string;
   topics: string[];
+  url: string;
 }
-
-
 
 /* NEWS API response interface */
 interface NewsEntityResponse {

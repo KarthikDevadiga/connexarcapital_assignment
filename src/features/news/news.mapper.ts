@@ -10,5 +10,6 @@ export function mapNewsResponseToNewsArticles(
     publishedAt: new Date(article.published_at),
     image: article.image_url,
     topics: article.entities.map((entity) => entity.industry),
+    url: article.url,
   }));
 }
